@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner de Vulnerabilidades OWASP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🛡️ Scanner de Vulnerabilidades OWASP</h1>
+            <p>Analiza sitios web en busca de vulnerabilidades de seguridad</p>
+        </div>
+        
+        <!-- Scanner Section -->
+        <div class="scanner-section">
+            <form class="scanner-form" id="scanForm">
+                <input 
+                    type="text" 
+                    id="urlInput" 
+                    name="url" 
+                    placeholder="https://ejemplo.com o ejemplo.com" 
+                    required
+                >
+                <button type="submit" id="scanBtn">
+                    <span id="btnText">Iniciar Análisis</span>
+                </button>
+            </form>
+            
+            <!-- Loading Indicator -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p class="loading-text">Analizando el sitio web...</p>
+                <p class="loading-subtext">Esto puede tomar unos segundos</p>
+            </div>
+            
+            <!-- Result Summary -->
+            <div class="scan-result" id="scanResult">
+                <div class="result-header">
+                    <h3>✓ Escaneo Completado</h3>
+                </div>
+                <div class="result-body">
+                    <div class="result-stats">
+                        <div class="stat-item stat-high">
+                            <span class="stat-number" id="statHigh">0</span>
+                            <span class="stat-label">Alta</span>
+                        </div>
+                        <div class="stat-item stat-medium">
+                            <span class="stat-number" id="statMedium">0</span>
+                            <span class="stat-label">Media</span>
+                        </div>
+                        <div class="stat-item stat-low">
+                            <span class="stat-number" id="statLow">0</span>
+                            <span class="stat-label">Baja</span>
+                        </div>
+                        <div class="stat-item stat-info">
+                            <span class="stat-number" id="statInfo">0</span>
+                            <span class="stat-label">Info</span>
+                        </div>
+                    </div>
+                    <button class="btn-download" id="btnDownload">
+                        📄 Ver Reporte Completo
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- OWASP Top 10 Content -->
+        <div class="content-section">
+            <div class="section-header">
+                <h2>📊 OWASP Top 10 - 2021</h2>
+                <p>Las 10 vulnerabilidades más críticas en aplicaciones web</p>
+            </div>
+            
+            <div class="owasp-top10">
+                {% for item in owasp_data %}
+                <div class="vuln-item" data-severity="{{ item.severity }}">
+                    <div class="vuln-header">
+                        <h3>{{ item.title }}</h3>
+                        <span class="severity severity-{{ item.severity }}">
+                            {{ item.severity.upper() }}
+                        </span>
+                    </div>
+                    <p>{{ item.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Scanner de Vulnerabilidades OWASP | Para uso educativo</p>
+            <p>Desarrollado con Flask & Python | <a href="https://github.com/JoseAlberto13" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
