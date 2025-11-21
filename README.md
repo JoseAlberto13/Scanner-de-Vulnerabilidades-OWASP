@@ -3,15 +3,15 @@
 Aplicación web educativa basada en Flask que replica un flujo básico de auditoría OWASP: analiza cabeceras, configuración SSL/TLS, cookies, métodos HTTP y expone un escaneo de puertos/servicios vía `python-nmap`. Todo queda documentado en un PDF de alta fidelidad con resumen de severidades, mapeo a OWASP Top 10 y hallazgos detallados.
 
 <p align="center">
-  <img src="docs/screenshots/ui-preview.png" alt="Vista previa de la interfaz web" width="80%">
+  <img src="docs/screenshots/ui-preview.png" alt="Vista previa de la interfaz web" width="100%">
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/report-preview-1.png" alt="Vista previa del reporte PDF" width="60%">
+  <img src="docs/screenshots/report-preview-1.png" alt="Vista previa del reporte PDF" width="90%">
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/report-preview-2.png" alt="Vista previa del reporte PDF" width="60%">
+  <img src="docs/screenshots/report-preview-2.png" alt="Vista previa del reporte PDF" width="90%">
 </p>
 
 > **Importante:** usa este proyecto únicamente en entornos controlados y con permiso del propietario del dominio/host. Está pensado para fines académicos y de laboratorio.
